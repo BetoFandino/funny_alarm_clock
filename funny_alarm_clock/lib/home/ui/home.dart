@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import '../widgets/shapes_painter.dart';
 
 class Home extends StatefulWidget {
-  const Home({key});
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
@@ -26,7 +26,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
     _timeString = _formatDateTime(DateTime.now());
 
-    Timer.periodic(Duration(seconds: 1), (Timer t) => _getTime());
+    Timer.periodic(const Duration(seconds: 1), (Timer t) => _getTime());
     
   }
 
@@ -51,9 +51,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           backgroundColor: Theme.of(context).primaryColor,
           bottom: TabBar(
             controller: _tabController,
-            indicatorColor: Theme.of(context).accentColor,
+            indicatorColor: Theme.of(context).colorScheme.secondary,
             indicatorWeight: 4.0,
-            tabs: <Widget>[
+            tabs: const <Widget>[
               Tab(icon: Icon(Icons.access_time), text: 'Clock'),
               Tab(icon: Icon(Icons.alarm), text: 'Alarm'),
               Tab(icon: Icon(Icons.hourglass_empty), text: 'Timer'),
@@ -66,19 +66,17 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           child:  TabBarView(
             controller: _tabController,
             children: <Widget>[
-              Container(
-                child: Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: CustomPaint(
-                        painter: ShapesPainter(),
-                        child: Container(height: 500.0,),
+              Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CustomPaint(
+                      painter: ShapesPainter(),
+                      child: Container(height: 500.0,),
 
-                        ),
-                    )
-                  ],
-                ),
+                      ),
+                  )
+                ],
               )
             ]
           ),

@@ -5,7 +5,7 @@ import 'home/ui/home.dart';
 void main() => runApp(const AlarmApp());
 
 class AlarmApp extends StatefulWidget {
-  const AlarmApp({key});
+  const AlarmApp({super.key});
 
   @override
   State<AlarmApp> createState() => _AlarmAppState();

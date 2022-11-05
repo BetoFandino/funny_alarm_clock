@@ -1,9 +1,8 @@
-import 'dart:ffi';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:vector_math/vector_math.dart';
-import 'package:vector_math/vector_math_64.dart' as Vector;
+//import 'package:vector_math/vector_math.dart';
+import 'package:vector_math/vector_math_64.dart' as vector;
 import 'dart:ui' as ui;
 
 class ShapesPainter extends CustomPainter {
@@ -12,9 +11,9 @@ class ShapesPainter extends CustomPainter {
   void paint(Canvas canvas, ui.Size size){
 
     // Global angle
-    var angle = Vector.radians(-90);
+    var angle = vector.radians(-90);
 
-    final double r = sqrt(size.width * size.width + size.width * size.height) / 2;
+    final double r = sqrt(size.width * size.width + size.height * size.height) / 2;
     final alpha = atan(size.height / size.width);
     final beta = alpha + angle;
     final shifty = r * sin(beta);
@@ -29,7 +28,7 @@ class ShapesPainter extends CustomPainter {
     // init painter
     final paint = Paint();
     var center = Offset(size.width / 2, size.height / 2);
-    paint.color = Color.fromARGB(255, 255, 255, 255);
+    paint.color = const Color.fromARGB(255, 255, 255, 255);
     canvas.drawCircle(center, (size.width /3) - 5, paint);
     paint.strokeCap = StrokeCap.round;
 
