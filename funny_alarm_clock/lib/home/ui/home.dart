@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:funny_alarm_clock/alarm/widgets/alarm_item.dart';
 import 'package:intl/intl.dart';
 
 import '../widgets/shapes_painter.dart';
@@ -84,13 +85,33 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               ],
             ),
             ListView(
-              children: const <Widget>[],
+              children: <Widget>[
+                alarmItem(_timeString, true),
+                alarmItem(_timeString, true),
+                alarmItem(_timeString, false),
+                alarmItem(_timeString, false),
+              ],
             ),
-            Column(),
-            Column()
+            const Icon(Icons.hourglass_empty),
+            const Icon(Icons.timer),
           ]),
         ),
+        floatingActionButton: _bottomButtons(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
+  }
+
+  FloatingActionButton? _bottomButtons() {
+    return _tabController?.index == 1
+        ? FloatingActionButton(
+            onPressed: () => Navigator.pushNamed(context, '/add-alarm'),
+            backgroundColor: Color(0xff65D1BA),
+            child: Icon(
+              Icons.add,
+              size: 20.0,
+            ),
+          )
+        : null;
   }
 }

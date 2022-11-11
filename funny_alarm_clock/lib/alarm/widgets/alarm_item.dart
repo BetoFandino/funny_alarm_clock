@@ -22,11 +22,59 @@ Widget alarmItem(hour, enabled) {
                   ),
                 ),
                 Row(
-                  children: <Widget>[],
+                  children: const <Widget>[
+                    Padding(
+                      padding: EdgeInsets.all(4.0),
+                      child: Text(
+                        'Sun',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(4.0),
+                      child: Text(
+                        'Mon',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(4.0),
+                      child: Text(
+                        'Tue',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    )
+                  ],
                 )
               ],
-            )
+            ),
+            CupertinoSwitch(
+              value: enabled,
+              onChanged: (bool val) {
+                print(val);
+              },
+              activeColor: const Color(0xff65D1BA),
+            ),
           ],
+        ),
+        const SizedBox(
+          height: 10.0,
+        ),
+        SizedBox(
+          height: 1.0,
+          width: double.maxFinite,
+          child: Container(
+            color: Colors.white30,
+          ),
         )
       ],
     ),
